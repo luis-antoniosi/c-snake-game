@@ -109,9 +109,9 @@ void processTail(Snake *snake)
 
 void input(int *key)
 {
-    if (_kbhit())
+    if (kbhitOS())
     {
-        int ch = _getch();
+        int ch = getchOS();
         switch (tolower(ch))
         {
         case 'w':
@@ -193,8 +193,8 @@ void printStart()
     int ch = 0;
     while (ch != '0')
     {
-        if (_kbhit())
-            ch = _getch();
+        if (kbhitOS())
+            ch = getchOS();
     }
 }
 

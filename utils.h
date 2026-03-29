@@ -4,11 +4,9 @@
 void enableANSI();
 void setCoord();
 void clearScreen();
-void sleepOS(int msTime);
 
-#ifdef __unix__
-    int _kbhit();
-    int _getch();
-#endif
+void sleepOS(int msTime);
+int kbhitOS();
+int getchOS();
 
 #endif
