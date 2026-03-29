@@ -3,8 +3,8 @@
 
 int main()
 {
-    enableANSI();
-    
+    initOS();
+
     Snake snake;
     Fruit fruit;
     

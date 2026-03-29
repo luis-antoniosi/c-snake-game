@@ -112,6 +112,8 @@ void input(int *key)
     if (kbhitOS())
     {
         int ch = getchOS();
+        if (ch == EOF) return;
+
         switch (tolower(ch))
         {
         case 'w':
