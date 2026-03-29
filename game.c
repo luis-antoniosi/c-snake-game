@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <ctype.h>
 #include <time.h>
-#include <windows.h>
+#include "utils.h"
 #include "game.h"
+
+#ifdef _WIN32
+    #include <windows.h>
+    #include <conio.h>
+#endif
 
 void createSnake(Snake *snake)
 {
@@ -19,31 +23,11 @@ void createFruit(Fruit *fruit)
     fruit->y = rand() % (HEIGHT - 2) + 1;
 }
 
-// https://stackoverflow.com/a/62784810 - ty !
-void enableANSI()
-{
-    DWORD dwMode = 0;
-    HANDLE stdoutHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-
-    GetConsoleMode(stdoutHandle, &dwMode);
-    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-    SetConsoleMode(stdoutHandle, dwMode);
-}
-
-// https://stackoverflow.com/a/54652335 - ty!
-void setCoord()
-{
-    COORD coord;
-    coord.X = 0;
-    coord.Y = 0;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
-
 // 
 
 void setup(Snake *snake, Fruit *fruit)
 {
-    system("cls");
+    clearScreen();
     srand(time(NULL));
 
     createSnake(snake);
@@ -188,7 +172,7 @@ void processInput(Snake *snake, Fruit *fruit, int *key, int *score)
 // https://patorjk.com/software/taag/
 void printStart()
 {
-    system("cls");
+    clearScreen();
     const char *start =
         " _____             _          _____\n"
         "/  ___|           | |        |  __ \\\n"
@@ -204,7 +188,7 @@ void printStart()
         "| |  | | |  __/\\__ \\__ \\ \\ |_/ / | || (_) | \\__ \\ || (_| | |  | |_\n"
         "\\_|  |_|  \\___||___/___/  \\___/   \\__\\___/  |___/\\__\\__,_|_|   \\__|\n";
 
-    fprintf(stdout, start);
+    printf("%s", start);
 
     int ch = 0;
     while (ch != '0')
@@ -216,7 +200,7 @@ void printStart()
 
 void printGameOver()
 {
-    system("cls");
+    clearScreen();
     const char *gameOver =
         " _____                        _____                  __\n"
         "|  __ \\                      |  _  |                 \\ \\\n"
@@ -226,5 +210,5 @@ void printGameOver()
         " \\____/\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|    (_) |\n"
         "                                                     /_/\n";
 
-    fprintf(stdout, gameOver);
+    printf("%s", gameOver);
 }

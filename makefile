@@ -1,7 +1,7 @@
 CC	:=	gcc
 CCFLAGS	:=	-std=c11 -Wall -Wpedantic -Wextra -Werror -O3 -march=native
 TARGET	:=	main
-OBJS	:=	main.o game.o
+OBJS	:=	main.o game.o utils.o
 
 .PHONY: all clean run
 

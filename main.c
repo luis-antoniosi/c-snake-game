@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include <windows.h>
+#include "utils.h"
 #include "game.h"
 
 int main()
 {
+    enableANSI();
+    
     Snake snake;
     Fruit fruit;
     
@@ -21,7 +23,7 @@ int main()
         
         drawGame(&snake, &fruit, score);
 
-        Sleep(500);
+        sleep(500);
     }
 
     printGameOver();
