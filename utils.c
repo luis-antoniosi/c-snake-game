@@ -62,7 +62,7 @@ void clearScreen()
     printf("\033[H\033[J");
 }
 
-// OS related functions
+// OS specific functions
 
 void initOS()
 {
