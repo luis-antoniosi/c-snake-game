@@ -4,7 +4,7 @@
 void enableANSI();
 void setCoord();
 void clearScreen();
-void sleep(int msTime);
+void sleepOS(int msTime);
 
 #ifdef __unix__
     int _kbhit();

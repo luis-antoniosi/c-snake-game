@@ -10,7 +10,7 @@
 #include <fcntl.h>
 
 // https://bitismyth.wordpress.com/2015/06/18/um-kbhit-para-o-linux/ - ty!
-void _kbhit()
+int _kbhit()
 {
     struct termios oldt, newt;
     int ch;
@@ -39,7 +39,7 @@ void _kbhit()
 }
 
 // https://www.vivaolinux.com.br/topico/C-C++/Erro-no-uso-da-biblioteca-termiosh - ty!
-void _getch()
+int _getch()
 {
     struct termios oldt, newt;
     int ch;
@@ -88,7 +88,7 @@ void clearScreen()
     fprintf(stdout, "\033[H\033[J");
 }
 
-void sleep(int msTime)
+void sleepOS(int msTime)
 {
 #ifdef _WIN32
     Sleep(msTime);

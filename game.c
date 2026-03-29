@@ -194,7 +194,7 @@ void printStart()
     while (ch != '0')
     {
         if (_kbhit())
-            ch = getch();
+            ch = _getch();
     }
 }
 

@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "utils.h"
 #include "game.h"
 
@@ -23,7 +22,7 @@ int main()
         
         drawGame(&snake, &fruit, score);
 
-        sleep(500);
+        sleepOS(500);
     }
 
     printGameOver();
