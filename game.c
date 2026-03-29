@@ -5,11 +5,6 @@
 #include "utils.h"
 #include "game.h"
 
-#ifdef _WIN32
-    #include <windows.h>
-    #include <conio.h>
-#endif
-
 void createSnake(Snake *snake)
 {
     snake->x = WIDTH / 2;
@@ -23,7 +18,7 @@ void createFruit(Fruit *fruit)
     fruit->y = rand() % (HEIGHT - 2) + 1;
 }
 
-// 
+//
 
 void setup(Snake *snake, Fruit *fruit)
 {
@@ -87,7 +82,7 @@ void drawGame(Snake *snake, Fruit *fruit, int score)
     *ptr = '\0';
     fputs(buffer, stdout);
 }
- 
+
 // Snake related
 
 void processTail(Snake *snake)
@@ -112,7 +107,8 @@ void input(int *key)
     if (kbhitOS())
     {
         int ch = getchOS();
-        if (ch == EOF) return;
+        if (ch == EOF)
+            return;
 
         switch (tolower(ch))
         {

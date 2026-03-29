@@ -5,7 +5,7 @@ OBJS	:=	main.o	game.o	utils.o
 
 .PHONY: all clean run
 
-all: $(TARGET)
+all: $(TARGET) run
 
 $(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o $@
